@@ -44,6 +44,10 @@ class CustomersController < ApplicationController
                         @customer.lastOrder2 = total
                     elsif @customer.lastOrder3 == 0  && total>0
                         @customer.lastOrder3 = total
+                         @customer.award =  
+                         (@customer.lastOrder+ 
+                         @customer.lastOrder2+ 
+                         @customer.lastOrder3)*0.3
                     elsif award > 0  && total>0
                         @customer.award = award
                     else 
@@ -53,7 +57,7 @@ class CustomersController < ApplicationController
                         if @customer.save
                             render status: :no_content
                         else
-                            render json: {message: 'Oops1'}, status: :bad_request
+                            render json: {message:'Oops1'},status: :bad_request
                         end
                     end
              else
