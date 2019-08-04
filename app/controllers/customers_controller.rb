@@ -47,7 +47,7 @@ class CustomersController < ApplicationController
                          @customer.award =  
                          (@customer.lastOrder+ 
                          @customer.lastOrder2+ 
-                         @customer.lastOrder3)*0.3
+                         @customer.lastOrder3)/30
                     elsif award > 0  && total>0
                         @customer.award = award
                     else 
